@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+}
+header{
+  padding: 2%;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.signoutButton{
+  width: 200px;
+  float: right;
+}
+.list{
+  padding: 4%;
+}
+.listItem{
+  padding-top: 10vh;
+  padding-left: 4%;
+  border: rgb(52, 5, 66) 2px solid;
+  border-radius: 10px;
+  vertical-align:  middle;
+  margin: 5vh;
+  display:flex; 
+}
+.listKey{
+  font-weight: 900;
+  font-size: larger;
+  color:rgb(87, 62, 40);
+}
+.todo-list {
+  background: #e8e8e8;
+  border-radius: 4px;
+  width: 100%;
+  padding: 5px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.todo {
+  align-items: center;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
+  display: flex;
+  font-size: 15px;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 7px;
+  padding: 10px 40px;
+}
+
+.doneButton{
+  font-weight: 900;
+  color:rgb(255, 255, 255);
+  position: absolute;
+  right: 150px;
+  border: 4%;
+  background-color: rgb(52, 5, 66);
+  border-radius: 15%;
+  border: rgb(52, 5, 66) 1px solid ;
+}
+
+#AppName{
+  display: flex;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  align-content: center;
+  color: rgb(29, 17, 12);
+  padding: 2%;
+}
+
+#userName{
+  display: grid;
+  align-content: center;
+  color:rgb(29, 17, 12);
+}
+
+.app {
+  background: #209cee;
+  height: 100vh;
+  padding: 30px;
+}
