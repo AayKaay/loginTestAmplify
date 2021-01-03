@@ -1,42 +1,56 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
+import { API, graphqlOperation } from 'aws-amplify';
+import { listTodos } from './graphql/queries'
 import "./App.css";
-
-
 
 function List() {
   const [listArr,setlistArr] = useState([
     {
-      task:"Complete the Assignment",
-      key:1,
-      done:false
+      task:1
     },
     {
-      task:"Complete the this Project",
-      key:2,
-      done:false
-    },
-    {
-      task:"Learn react",
-      key:3,
-      done:false
-    },
+      task:2
+    }
   ])
-  const doneTask = (index,e) => {
-    const listt = [...listArr];
-    listt[index].done = true;
-    setlistArr(listt);
-    e.target.disabled = true;
-    console.log(e)
-  };
+  const getDataFunction = async () => {
+    var datArr =  await API.graphql(graphqlOperation(listTodos))   
+    setlistArr(datArr.data.listTodos.items)   
+    console.log(typeof(datArr.data.listTodos.items))   
+    console.log((datArr.data.listTodos.items[0]))   
+  }
+  useEffect( () => {    
+    getDataFunction()    
+  },[])
+  
+  
+  
+const doneTask = (index,e) => {
+  const listt = [...listArr];
+  listt[index].done = true;
+  setlistArr(listt);
+  e.target.disabled = true;
+  console.log(e)
+};
+
 
   return (
     <div className="todo-list" >      
-      
+      <button onClick= {() => {
+        API.graphql(graphqlOperation(listTodos))
+        .then((res) => {
+          console.log(res.data.listTodos.items)
+        })
+      }}>
+        CLick to log data grom graphql
+      </button>
+      <button onClick= { () => {} }>
+        CLick to add data
+      </button>
         {listArr.map((lis,index)=> (
           <div className="todo"  style={{ textDecoration: lis.done ? "line-through" : "" }}>
             {lis.task}
             <div>
-              <button onClick={(e) => doneTask(index,e)}  onMouseEnter={(e) =>{
+              <button onMouseEnter={(e) =>{
                 e.target.style.color="red";
               }} 
               onMouseLeave ={(e) =>{

@@ -9,11 +9,10 @@ function App() {
   const funcc = async () => {
     let user = await Auth.currentAuthenticatedUser();
     console.log(user)
-    const { attributes } = user;
     const { email } = user.attributes;
     setEmail(email)
   }
-  funcc()
+  //funcc()
   return (
     <div>
       <header>
